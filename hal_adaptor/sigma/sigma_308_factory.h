@@ -9,7 +9,7 @@ class sigma_308_factory : public hal::node_factory {
 public:
     sigma_308_factory();
     ~sigma_308_factory() override;
-    std::shared_ptr<hal::base_node> create_hal_adaptor(hal::HW_TYPE hw_type) override;
+    std::shared_ptr<hal::node> create_hal_adaptor(hal::HW_TYPE hw_type) override;
 };
 
 }

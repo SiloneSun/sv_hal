@@ -11,7 +11,7 @@ namespace hal {
 class node_factory {
 public:
     virtual ~node_factory();
-    virtual std::shared_ptr<base_node> create_hal_adaptor(HW_TYPE hw_type) = 0;
+    virtual std::shared_ptr<node> create_hal_adaptor(HW_TYPE hw_type) = 0;
 
 protected:
     node_factory();

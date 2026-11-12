@@ -1,11 +1,13 @@
 #include "hal_base_node.h"
 
-using namespace hal;
+namespace hal {
 
-base_node::base_node()
+node::node() = default;
+node::~node() = default;
+
+std::int32_t node::custom_process(std::uint32_t, void*, std::uint32_t)
 {
+    return CONTROL_UNSUPPORTED;
 }
 
-base_node::~base_node()
-{
 }
