@@ -1,9 +1,8 @@
 #ifndef HAL_BASE_NODE_H
 #define HAL_BASE_NODE_H
-#include <stdlib.h>
+#include <cstdint>
 
 
-using namespace std;
 
 namespace hal { 
 
@@ -12,8 +11,8 @@ namespace hal {
         base_node();
         virtual ~base_node();
 
-        virtual int8_t init() = 0;
-        virtual int8_t deinit() = 0;
+        virtual std::int8_t init() = 0;
+        virtual std::int8_t deinit() = 0;
 
         
     };

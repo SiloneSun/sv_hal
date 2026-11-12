@@ -9,11 +9,23 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# 平台选择只影响构建，HAL 和 App 不包含芯片选择逻辑。
+set(HAL_PLATFORM "sigma_308" CACHE STRING "Target HAL platform")
+set_property(CACHE HAL_PLATFORM PROPERTY STRINGS sigma_308 hisi)
+if(HAL_PLATFORM STREQUAL "sigma_308")
+    set(HAL_PLATFORM_DIR "hal_adaptor/sigma")
+elseif(HAL_PLATFORM STREQUAL "hisi")
+    set(HAL_PLATFORM_DIR "hal_adaptor/hisi")
+else()
+    message(FATAL_ERROR "Unsupported HAL_PLATFORM: ${HAL_PLATFORM}")
+endif()
+message(STATUS "HAL platform: ${HAL_PLATFORM}")
+
 set(HAL_SOURCE_FILES)
 set(HAL_HEADER_FILES)
 set(HAL_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}")
 
-foreach(module IN ITEMS app hal hal_adaptor sigma)
+foreach(module IN ITEMS app hal "${HAL_PLATFORM_DIR}")
     set(module_dir "${CMAKE_CURRENT_SOURCE_DIR}/${module}")
     file(GLOB_RECURSE module_sources CONFIGURE_DEPENDS
         "${module_dir}/*.c"

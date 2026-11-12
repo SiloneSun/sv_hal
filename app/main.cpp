@@ -1,15 +1,15 @@
+#include "demo.h"
+#include "hal/hal_node_factory.h"
 #include <iostream>
-#include <string>
-
-
-#include "hal_base_node.h"
-#include "hal_pipeline.h"
-
-using namespace std;
-
 
 int main()
 {
-    std::shared_ptr<hal::pipeline> pipeline_ptr = std::make_shared<hal::pipeline>();
-    return 0; 
+    // 平台由 CMake 选择，App 只调用 HAL 公共入口。
+    auto factory = hal::create_factory();
+    if (!factory) {
+        std::cerr << "Failed to create platform factory.\n";
+        return 1;
+    }
+
+    return run_demo(*factory);
 }
