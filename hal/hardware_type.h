@@ -10,6 +10,7 @@ namespace hal {
         HW_TYPE_ISP,
         HW_TYPE_SCL,
         HW_TYPE_VENC,
+        HW_TYPE_FRAME_SINK,
         // 其他硬件类型...
     };
    

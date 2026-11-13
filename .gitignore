@@ -1,0 +1,20 @@
+# 忽略 CMake 构建目录（最常见）
+build/
+# 如果构建目录有其他名字，也一并忽略
+build_*/
+out/
+cmake-build-*/
+
+# 忽略 CMake 生成的配置文件
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# 忽略常见的编译产物
+*.o
+*.obj
+*.so
+*.a
+*.out
+*.exe

@@ -1,0 +1,1 @@
+./build/sigma_308/hal_demo

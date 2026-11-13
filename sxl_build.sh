@@ -6,7 +6,7 @@ project_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 # Usage: ./sxl_build.sh [platform]; HAL_PLATFORM environment variable is also accepted.
 platform="${1:-${HAL_PLATFORM:-sigma_308}}"
 case "${platform}" in
-    sigma_308|hisi) ;;
+    sigma_308|hisi|test) ;;
     *) printf 'Error: unsupported platform: %s\n' "${platform}" >&2; exit 1 ;;
 esac
 build_dir="${project_dir}/build/${platform}"

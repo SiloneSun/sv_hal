@@ -10,7 +10,8 @@ enum control_status : std::int32_t {
     CONTROL_UNSUPPORTED = -1,
     CONTROL_INVALID_ARGUMENT = -2,
     CONTROL_VERSION_MISMATCH = -3,
-    CONTROL_INVALID_STATE = -4
+    CONTROL_INVALID_STATE = -4,
+    CONTROL_WOULD_BLOCK = -5
 };
 
 }
